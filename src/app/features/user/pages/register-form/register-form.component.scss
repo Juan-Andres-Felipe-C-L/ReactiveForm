@@ -124,3 +124,35 @@ button {
     margin-top: 0.15rem;
   }
 }
+
+button:disabled {
+  background: #bdbdbd;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.summary-card {
+  width: 320px;
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+
+  h2 {
+    text-align: center;
+    color: #1976d2;
+    margin-top: 0;
+  }
+
+  p {
+    margin: .8rem 0;
+  }
+}

@@ -1,4 +1,21 @@
-<div class="container">
+<div class="content">
+
+  <div class="summary-card" *ngIf="userData">
+
+    <h2>Información registrada</h2>
+
+    <p><strong>Nombre:</strong> {{ userData.name }}</p>
+
+    <p><strong>Correo:</strong> {{ userData.email }}</p>
+
+    <p><strong>Usuario:</strong> {{ userData.userName }}</p>
+
+    <p><strong>Edad:</strong> {{ userData.age }}</p>
+
+  </div>
+
+  <div class="container">
+
     <div class="card">
         <h2>Registro de usuario</h2>
         <p class="subtitle">Por favor, registre su información:</p>
@@ -13,7 +30,7 @@
                     Debe de escribir su nombre, es obligatorio.
                 </small>
 
-                <small class="error" *ngIf="isInvalid('name', 'minLength')">
+                <small class="error" *ngIf="isInvalid('name', 'minlength')">
                     El nombre debe tener como mínimo 3 letras.
                 </small>
             </div>
@@ -23,7 +40,7 @@
 
                 <input formControlName="email" id="email" type="email" placeholder="Ej. usuario@ejemplo.com"/>
 
-                <small class="error" *ngIf="isInvalid('email', 'requiered')">
+                <small class="error" *ngIf="isInvalid('email', 'required')">
                     Usuario, debe de ingresar un correo.
                 </small>
 
@@ -55,7 +72,7 @@
                     Es obligatorio escibir una contraseña.
                 </small>
 
-                <small class="error" *ngIf="isInvalid('password', 'minLength')">
+                <small class="error" *ngIf="isInvalid('password', 'minlength')">
                     La contraseña debe tener 8 caracteres como mínimo.
                 </small>
             </div>
@@ -93,18 +110,24 @@
             </div>
 
             <div class="form-group">
-                <label for="check">Sí acepto los terminos y condiciones:</label>
+                <label for="check">Sí acepto los terminos y condiciones: 
+                    <input formControlName="check" id="check" type="checkbox"/>
+                </label>                
 
-                <input formControlName="check" id="check" type="checkbox"/>
-
-                <small class="error" *ngIf="isInvalid('check', 'requiredTrue')">
+                <small class="error" *ngIf="isInvalid('check', 'required')">
                     Si quiere continuar debe aceptar los terminos y condiciones.
                 </small>
             </div>
 
-            <button (click)="onClick()" type="submit">
+            <button
+                type="submit"
+                (click)="onClick()"
+                [disabled]="form.invalid">
                 Registrarse
             </button>
         </form>
     </div>
+
+  </div>
+
 </div>

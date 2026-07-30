@@ -6,11 +6,10 @@ import { UserModule } from './features/user/user.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    UserModule
+    AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
